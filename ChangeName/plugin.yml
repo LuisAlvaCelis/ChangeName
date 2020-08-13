@@ -1,0 +1,8 @@
+name: ChangeNames
+version: 1.0
+author: LuisAlvaCelis
+main: net.thanatos.main.MainClass
+
+commands:
+  changename:
+    aliases: [cn,changenick]

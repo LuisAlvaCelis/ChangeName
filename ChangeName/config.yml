@@ -1,0 +1,20 @@
+#
+#
+#   ChangeNames
+#       Version 1.0
+#       By: ThanatosPlayer / Kamui_IF
+#
+#
+
+##--Config--##
+
+Config:
+  status: true
+  message:
+    enable-pl: "&aChangeName has been enable."
+    disable-pl: "&cChangeName has been disable."
+    no-active: "&cError: ChangeName is not activated."
+    no-permission: "&cError: You don't have permission to execute this command."
+  permissions:
+    op: "cn.*"
+    allowed: "cn.allowed"
