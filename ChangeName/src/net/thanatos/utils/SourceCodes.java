@@ -160,20 +160,18 @@ public class SourceCodes {
 	    try {
 	        Method getHandle = player.getClass().getMethod("getHandle");
 	        Object entityPlayer = getHandle.invoke(player);
-	        boolean gameProfileExists = false;
+	        boolean gpe = false;
 	        try {
 	            Class.forName("net.minecraft.util.com.mojang.authlib.GameProfile");
-	            gameProfileExists = true;
-	        } catch (ClassNotFoundException ignored) {
-
+	            gpe = true;
+	        } catch (ClassNotFoundException ignored) {}
+	        finally {
+	        	try {
+		            Class.forName("com.mojang.authlib.GameProfile");
+		            gpe = true;
+		        } catch (ClassNotFoundException ignored) {}
 	        }
-	        try {
-	            Class.forName("com.mojang.authlib.GameProfile");
-	            gameProfileExists = true;
-	        } catch (ClassNotFoundException ignored) {
-
-	        }
-	        if (!gameProfileExists) {
+	        if (!gpe) {
 	            Field nameField = entityPlayer.getClass().getSuperclass().getDeclaredField("name");
 	            nameField.setAccessible(true);
 	            nameField.set(entityPlayer, name);
